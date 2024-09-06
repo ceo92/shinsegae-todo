@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<form th:object="${todo}" th:action method="post">
+<div>
+  <input th:field="*{id}" disabled>
+</div>
+
+<div>
+  <input th:field="*{title}">
+</div>
+
+<div>
+  <input type="date" th:field="*{{date}}">
+</div>
+
+<div>
+  <input type="checkbox" th:field="*{isDone}">
+</div>
+
+  <div>
+    <button type="submit" th:text="Modify"></button>
+  </div>
+
+</form>
+
+<form th:action="@{/todo/{id}/remove(id = ${todo.id})}" method="post">
+  <button type="submit" th:text="Remove"></button>
+</form>
+
+</body>
+</html>

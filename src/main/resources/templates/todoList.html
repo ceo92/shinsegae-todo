@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1 th:text="|Todo List|"></h1>
+
+<h2 th:if="${param.registerStatus}" th:text="|${param.id}의 등록이 완료되었습니다|"></h2>
+<h2 th:if="${param.modifyStatus}" th:text="|${param.id}의 수정이 완료되었습니다|"></h2>
+<h2 th:if="${param.removeStatus}" th:text="|${param.id}의 삭제가 완료되었습니다|"></h2>
+
+<ul>
+  <li th:each="todo : ${todos}">
+    <a th:href="@{/todo/{id}(id = ${todo.id})}" th:text="|${todo.id} |">id</a>
+    <span th:text="|${todo.title} |">title</span>
+    <span th:text="|${{todo.date}} |">date</span>
+    <span th:if="${todo.isDone}" th:text="|DONE|"></span>
+    <span th:unless="${todo.isDone}" th:text="|NOT YET|"></span>
+    <a></a>
+  </li>
+</ul>
+<br>
+<br>
+
+<a th:href="@{/todo/register}" th:text="|등록하기|"></a>
+</body>
+</html>

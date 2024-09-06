@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <form th:object="${todo}" th:action method="post">
+    <div>
+      <input th:field="*{title}" placeholder="INSERT TITLE" size="50">
+    </div>
+
+    <div>
+      <input type="date" th:field="*{date}" placeholder="년-월-일">
+    </div>
+
+    <div>
+      <input type="checkbox" th:field="*{isDone}"  >
+    </div>
+
+
+
+    <button th:text="RESET" type="reset"></button>
+    <button th:text="REGISTER" type="submit"></button>
+
+  </form>
+</body>
+</html>

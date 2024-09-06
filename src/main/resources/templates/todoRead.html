@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h2 th:if="${param.status}" th:text="|수정이 완료되었습니다|"></h2>
+<form th:object="${todo}">
+  <div>
+    <input th:field="*{id}" disabled>
+  </div>
+
+  <div>
+    <input th:field="*{title}" disabled>
+  </div>
+
+  <div>
+    <input type="date" th:field="*{date}" disabled>
+  </div>
+
+  <div>
+    <input type="checkbox" th:value="*{isDone}" disabled>
+  </div>
+</form>
+
+  <a th:href="@{/todo/{id}/modify(id = ${todo.id})}" th:text="|Modify/Remove|"></a>
+  <a th:href="@{/todo/list}" th:text="List"></a>
+</body>
+</html>
