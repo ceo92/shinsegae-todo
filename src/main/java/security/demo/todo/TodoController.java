@@ -15,6 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class TodoController {
   private final TodoService todoService;
 
+  @GetMapping("asddsa")
+  public String djs(){
+    
+  }
 
   @GetMapping("todo/register")
   public String aa(Model model){
